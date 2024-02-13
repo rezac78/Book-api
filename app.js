@@ -4,6 +4,7 @@ const dotEnv = require("dotenv");
 const cors = require("cors");
 // import File
 const bookRoutes = require("./src/routes/bookRoutes.js");
+const errorHandler = require("./src/Middleware/errorMiddleware.js");
 // Load Config
 dotEnv.config({ path: "./config/config.env" });
 const app = express();
@@ -11,6 +12,8 @@ const app = express();
 app.use(cors());
 // Routes
 app.use(bodyParser.json());
+// errorMiddleware
+app.use(errorHandler);
 // Define a root route
 app.get("/", (req, res) => {
   res.send("Hello World from Express.js");
