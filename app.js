@@ -4,6 +4,7 @@ const dotEnv = require("dotenv");
 const cors = require("cors");
 // import File
 const bookRoutes = require("./src/routes/bookRoutes.js");
+const authRoutes = require("./src/routes/authRoutes.js");
 const errorHandler = require("./src/Middleware/errorMiddleware.js");
 // Load Config
 dotEnv.config({ path: "./config/config.env" });
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
   res.send("Hello World from Express.js");
 });
 app.use("/books", bookRoutes);
+app.use("/login", authRoutes);
 // Select a port
 const PORT = process.env.PORT || 3000;
 
