@@ -1,0 +1,55 @@
+This document outlines the structure and functionality of the backend for a book management and authentication system built with Express.js. The application provides endpoints for book CRUD operations and user authentication.
+
+<!-- Setup and Installation -->
+
+npm install
+npm start
+The server will be running on http://localhost:3000
+
+<!-- Project Structure -->
+
+The project is structured as follows:
+
+--- src/: Contains all the source code.
+--- controllers/: Defines the logic for handling requests for each route.
+--- models/: Contains the models for the application data.
+--- routes/: Defines the routes of the application.
+--- Middleware/: Contains middleware for error handling and request validation.
+--- config/: Contains configuration files, including environment variables.
+--- db/: Contains the database configuration files.
+
+<!-- Key Components -->
+
+- Book Management
+  Endpoints:
+  --- GET /books: Retrieves all books.
+  --- GET /books/:id: Retrieves a book by ID.
+  --- POST /books: Creates a new book.
+  --- PUT /books/:id: Updates an existing book.
+  --- DELETE /books/:id: Deletes a book.
+  Controller: bookController.js handles the logic for each book operation.
+  Model: bookModel.js interacts with the database to perform CRUD operations.
+
+<!-- Authentication -->
+
+--- Endpoint: POST /login
+--- Controller: authController.js handles the login logic.
+--- Validation: Checks if the email and password match the predefined credentials (email:admin@gmail.com , password:admin).
+
+<!-- Middleware -->
+
+--- Validation Middleware: Validates request bodies for creating and updating books.
+--- Error Handling Middleware: Catches and handles errors globally across the application.
+
+<!-- Technologies -->
+
+--- Express.js: Used for server-side logic and API endpoint creation.
+--- Body-Parser: Middleware for parsing incoming request bodies.
+--- Dotenv: Manages environment variables.
+--- Cors: Enables Cross-Origin Resource Sharing.
+--- NeDB: A lightweight embedded database for the backend.
+
+<!-- Testing -->
+
+--- Jest: Used for unit testing controllers and models.
+--- Supertest: Used for integration testing of the endpoints.
