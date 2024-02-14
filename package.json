@@ -23,6 +23,7 @@
     "install": "^0.13.0",
     "lowdb": "^7.0.1",
     "nedb": "^1.8.0",
+    "node-mocks-http": "^1.14.1",
     "npm": "^10.4.0"
   },
   "devDependencies": {
