@@ -78,7 +78,10 @@ const bookController = {
     try {
       const deleted = await BookModel.delete(req.params.id);
       if (deleted) {
-        res.sendStatus(204);
+        res.status(201).json({
+          success: false,
+          message: "Book Delete successfully.",
+        });
       } else {
         res.status(404).json({ success: false, message: "Book not found." });
       }

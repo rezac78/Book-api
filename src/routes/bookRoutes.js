@@ -4,7 +4,7 @@ const {
   createBookValidationRules,
   updateBookValidationRules,
   validate,
-} = require("../../validators/bookValidator.js");
+} = require("../Middleware/validatorsMiddleware.js");
 const router = express.Router();
 router.get("/", bookController.getAllBooks);
 router.get("/:id", bookController.getBookById);
