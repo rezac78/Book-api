@@ -1,25 +1,21 @@
 const express = require("express");
-const bookController = require("../controllers/bookController.js");
+const {
+  getAllBooks,
+  getBookById,
+  createBook,
+  updateBook,
+  deleteBook,
+} = require("../controllers/bookController.js");
 const {
   createBookValidationRules,
   updateBookValidationRules,
   validate,
 } = require("../Middleware/validatorsMiddleware.js");
 const router = express.Router();
-router.get("/", bookController.getAllBooks);
-router.get("/:id", bookController.getBookById);
-router.post(
-  "/",
-  createBookValidationRules(),
-  validate,
-  bookController.createBook
-);
-router.put(
-  "/:id",
-  updateBookValidationRules(),
-  validate,
-  bookController.updateBook
-);
-router.delete("/:id", bookController.deleteBook);
+router.get("/", getAllBooks);
+router.get("/:id", getBookById);
+router.post("/", createBookValidationRules(), validate, createBook);
+router.put("/:id", updateBookValidationRules(), validate, updateBook);
+router.delete("/:id", deleteBook);
 
 module.exports = router;
